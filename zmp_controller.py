@@ -55,7 +55,7 @@ def get_com_acc(model, data):
         return com, np.zeros(3)
     # vel = (com - globals.prev_com) / dt
     # acc = (vel - globals.prev_vel) / dt
-    alpha = 0.2  # сглаживание (чем меньше, тем плавнее)
+    alpha = 0.2  # сглаживание 
     vel = alpha * (com - globals.prev_com) / dt + (1 - alpha) * globals.prev_vel
     acc = alpha * (vel - globals.prev_vel) / dt + (1 - alpha) * (globals.prev_acc if hasattr(globals, 'prev_acc') else np.zeros(3))
     globals.prev_com = com.copy()
@@ -116,17 +116,3 @@ def zmp_controller(model, data):
     zmp_history.append(zmp)
     return zmp_x, zmp_y
 
-def save_data_to_csv():
-    # Создаем DataFrame с временем, CoM и ZMP
-    data_dict = {
-        'time': time_history,
-        'com_x': [com[0] for com in com_history],
-        'com_y': [com[1] for com in com_history],
-        'com_z': [com[2] for com in com_history],
-        'zmp_x': [zmp[0] for zmp in zmp_history],
-        'zmp_y': [zmp[1] for zmp in zmp_history]
-    }
-    
-    df = pd.DataFrame(data_dict)
-    df.to_csv('motion_data.csv', index=False)
-    print("Данные сохранены в motion_data.csv")

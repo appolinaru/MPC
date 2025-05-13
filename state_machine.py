@@ -124,8 +124,6 @@ def state_machine():
             
             if new_state == fsm_swing:
                 _init_swing_leg(leg_num)
-                if pms.current_gait == "walk":
-                    _ensure_walk_stability(leg_num)
             else:
                 _init_stance_leg(leg_num)
 

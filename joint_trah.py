@@ -6,12 +6,12 @@ from jac_end_effector_leg import jac_end_effector_leg
 
 def joint_traj():
 
-    lx_ref = globals.lx_ref;
-    ly_ref = globals.ly_ref;
-    lz_ref = globals.lz_ref;
-    lxdot_ref = globals.lxdot_ref;
-    lydot_ref = globals.lydot_ref;
-    lzdot_ref = globals.lzdot_ref;
+    lx_ref = globals.lx_ref
+    ly_ref = globals.ly_ref
+    lz_ref = globals.lz_ref
+    lxdot_ref = globals.lxdot_ref
+    lydot_ref = globals.lydot_ref
+    lzdot_ref = globals.lzdot_ref
 
 
     for leg_no in range(4):
